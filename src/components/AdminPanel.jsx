@@ -7,19 +7,6 @@ import { API_URL, STORAGE_URL } from '../config';
 
 const ADMIN_KEY = import.meta.env.VITE_ADMIN_API_KEY;
 
-// When uploading:
-await axios.post(`${API_URL}/products`, formDataObj, {
-  headers: { 
-    'Content-Type': 'multipart/form-data',
-    'X-Admin-Key': ADMIN_KEY
-  }
-});
-
-// When deleting:
-await axios.delete(`${API_URL}/products/${productId}`, {
-  headers: { 'X-Admin-Key': ADMIN_KEY }
-});
-
 export function AdminPanel() {
   const [view, setView] = useState('upload'); // 'upload' or 'products'
   const [products, setProducts] = useState([]);
@@ -64,7 +51,10 @@ export function AdminPanel() {
       if (formData.preview_image) formDataObj.append('preview_image', formData.preview_image);
 
       await axios.post(`${API_URL}/products`, formDataObj, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+        headers: { 
+          'Content-Type': 'multipart/form-data',
+          'X-Admin-Key': ADMIN_KEY
+        }
       });
 
       setFormData({ title: '', description: '', price: '', category: '', pdf_file: null, preview_image: null });
@@ -83,7 +73,9 @@ export function AdminPanel() {
 
     try {
       setDeleting(productId);
-      await axios.delete(`${API_URL}/products/${productId}`);
+      await axios.delete(`${API_URL}/products/${productId}`, {
+        headers: { 'X-Admin-Key': ADMIN_KEY }
+      });
       alert('✅ Product deleted successfully!');
       fetchProducts();
     } catch (err) {
