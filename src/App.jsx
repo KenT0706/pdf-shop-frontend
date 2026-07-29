@@ -11,7 +11,7 @@ import { AdminLogin } from './components/AdminLogin';
 import { AdminPanel } from './components/AdminPanel';
 import { InterestForm } from './components/InterestForm';
 
-import { API_URL, STORAGE_URL } from '../config';
+import { API_URL, STORAGE_URL } from './config';
 
 function App() {
   const [currentView, setCurrentView] = useState('shop');
