@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Upload, X } from 'lucide-react';
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+import { API_URL, STORAGE_URL } from '../config';
 
 export function AdminForm({ onSuccess }) {
   const [formData, setFormData] = useState({

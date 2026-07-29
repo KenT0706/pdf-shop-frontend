@@ -1,39 +1,71 @@
 // src/components/Sidebar.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import axios from 'axios';
+
+import { API_URL, STORAGE_URL } from '../config';
 
 export function Sidebar({ onFilterChange }) {
   const [expandedCategory, setExpandedCategory] = useState(null);
   const [priceRange, setPriceRange] = useState(100);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const categories = [
-    { name: 'All Resources', count: 24 },
-    { name: 'Performance Management', count: 8 },
-    { name: 'Employee Relations', count: 6 },
-    { name: 'Recruitment', count: 5 },
-    { name: 'Training & Development', count: 5 },
-  ];
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`${API_URL}/categories`);
+      setCategories(response.data);
+    } catch (err) {
+      console.error('Failed to load categories:', err);
+      setCategories([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="space-y-6">
       {/* Categories */}
       <div className="bg-white rounded-2xl p-6 shadow-lg">
         <h3 className="font-bold text-lg text-slate-900 mb-4">Categories</h3>
-        <div className="space-y-2">
-          {categories.map((cat, idx) => (
+        
+        {loading ? (
+          <div className="text-center text-slate-600 py-4">Loading...</div>
+        ) : categories.length === 0 ? (
+          <div className="text-center text-slate-600 py-4 text-sm">No categories yet</div>
+        ) : (
+          <div className="space-y-2">
             <button
-              key={idx}
-              onClick={() => setExpandedCategory(expandedCategory === idx ? null : idx)}
+              onClick={() => setExpandedCategory(expandedCategory === 'all' ? null : 'all')}
               className="w-full flex items-center justify-between p-3 rounded-lg text-left hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group"
             >
-              <span className="font-medium text-slate-700 group-hover:text-blue-600">{cat.name}</span>
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-slate-600 bg-slate-100 px-2 py-1 rounded-full group-hover:bg-blue-100">{cat.count}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-300 text-slate-600 group-hover:text-blue-600 ${expandedCategory === idx ? 'rotate-180' : ''}`} />
-              </div>
+              <span className="font-medium text-slate-700 group-hover:text-blue-600">All Resources</span>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-300 text-slate-600 group-hover:text-blue-600 ${expandedCategory === 'all' ? 'rotate-180' : ''}`} />
             </button>
-          ))}
-        </div>
+
+            {categories.map((cat, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setExpandedCategory(expandedCategory === idx ? null : idx);
+                  onFilterChange({ category: cat.name });
+                }}
+                className="w-full flex items-center justify-between p-3 rounded-lg text-left hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 group"
+              >
+                <span className="font-medium text-slate-700 group-hover:text-blue-600">{cat.name}</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-slate-600 bg-slate-100 px-2 py-1 rounded-full group-hover:bg-blue-100">{cat.count || 0}</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 text-slate-600 group-hover:text-blue-600 ${expandedCategory === idx ? 'rotate-180' : ''}`} />
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Price Range */}
@@ -54,30 +86,12 @@ export function Sidebar({ onFilterChange }) {
               RM {priceRange}
             </span>
           </div>
-          <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95">
+          <button 
+            onClick={() => onFilterChange({ maxPrice: priceRange })}
+            className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95"
+          >
             Apply Filter
           </button>
-        </div>
-      </div>
-
-      {/* Ratings */}
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 className="font-bold text-lg text-slate-900 mb-4">Ratings</h3>
-        <div className="space-y-3">
-          {[5, 4, 3, 2, 1].map((rating) => (
-            <label key={rating} className="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-slate-50 transition-colors">
-              <input type="checkbox" className="w-5 h-5 rounded text-blue-600 cursor-pointer" />
-              <div className="flex items-center gap-1">
-                {[...Array(rating)].map((_, i) => (
-                  <span key={i} className="text-amber-400">★</span>
-                ))}
-                {[...Array(5 - rating)].map((_, i) => (
-                  <span key={i} className="text-slate-300">★</span>
-                ))}
-              </div>
-              <span className="text-sm text-slate-600">& Up</span>
-            </label>
-          ))}
         </div>
       </div>
     </div>

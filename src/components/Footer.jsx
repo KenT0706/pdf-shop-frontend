@@ -13,7 +13,7 @@ export function Footer() {
               <div className="bg-gradient-to-br from-cyan-400 to-blue-600 p-2 rounded-lg">
                 <FileText className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold">HR Academy</h3>
+              <h3 className="text-2xl font-bold">HR Training Consultancy</h3>
             </div>
             <p className="text-blue-200 text-sm leading-relaxed">
               Premium training resources for modern HR professionals worldwide.
@@ -54,11 +54,11 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-blue-200 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
                 <Mail className="w-5 h-5" />
-                <span>support@hracademy.com</span>
+                <span>https://hr-training-consultancy.mystrikingly.com</span>
               </li>
               <li className="flex items-center gap-3 text-blue-200 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
                 <Phone className="w-5 h-5" />
-                <span>+60 3 1234 5678</span>
+                <span>+60192371813</span>
               </li>
               <li className="flex items-center gap-3 text-blue-200 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
                 <MapPin className="w-5 h-5" />

@@ -1,6 +1,6 @@
 // src/components/ProductCard.jsx
 import React from 'react';
-import { ShoppingCart, FileText, Star, Download } from 'lucide-react';
+import { ShoppingCart, FileText, Download } from 'lucide-react';
 
 export function ProductCard({ product, onPurchase }) {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -19,7 +19,7 @@ export function ProductCard({ product, onPurchase }) {
         <div className="relative h-56 bg-gradient-to-br from-slate-100 to-slate-200 overflow-hidden">
           {product.preview_image ? (
             <img
-              src={`http://127.0.0.1:8000/storage/${product.preview_image}`}
+              src={`${STORAGE_URL}/${product.preview_image}`}
               alt={product.title}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
@@ -32,9 +32,9 @@ export function ProductCard({ product, onPurchase }) {
             </div>
           )}
           
-          {/* Badge */}
+          {/* Category Badge */}
           <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-400 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transform transition-transform duration-300 group-hover:scale-110">
-            NEW
+            {product.category || 'General'}
           </div>
 
           {/* Overlay on hover */}
@@ -68,18 +68,6 @@ export function ProductCard({ product, onPurchase }) {
               <Download className="w-4 h-4 text-green-600 group-hover/item:scale-125 transition-transform" />
               <span>Instant Download</span>
             </div>
-            <div className="flex items-center text-sm text-slate-600 gap-2 group/item">
-              <Star className="w-4 h-4 text-amber-500 group-hover/item:scale-125 transition-transform" />
-              <span>Lifetime Access</span>
-            </div>
-          </div>
-
-          {/* Rating */}
-          <div className="flex items-center space-x-1 mb-4">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-            ))}
-            <span className="text-xs text-slate-600 ml-2">(52 reviews)</span>
           </div>
 
           {/* Price and Button */}
