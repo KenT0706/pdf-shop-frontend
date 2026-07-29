@@ -1,6 +1,7 @@
 // src/components/ProductCard.jsx
 import React from 'react';
 import { ShoppingCart, FileText, Download } from 'lucide-react';
+import { STORAGE_URL } from '../config';
 
 export function ProductCard({ product, onPurchase }) {
   const [isHovered, setIsHovered] = React.useState(false);
