@@ -16,7 +16,7 @@ export function Footer() {
               <h3 className="text-2xl font-bold">HR Training Consultancy</h3>
             </div>
             <p className="text-blue-200 text-sm leading-relaxed">
-              Premium training resources for modern HR professionals worldwide.
+              Premium training resources for modern HR professional
             </p>
           </div>
 
@@ -24,7 +24,7 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-4 text-white">Quick Links</h4>
             <ul className="space-y-3">
-              {['About Us', 'Contact', 'Blog', 'Support'].map((link) => (
+              {['Contact', 'Blog', 'Support'].map((link) => (
                 <li key={link}>
                   <a href="#" className="text-blue-200 hover:text-cyan-400 transition-colors duration-300">
                     {link}
@@ -54,7 +54,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-blue-200 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
                 <Mail className="w-5 h-5" />
-                <span>https://hr-training-consultancy.mystrikingly.com</span>
+                <span>yslserene@gmail.com</span>
               </li>
               <li className="flex items-center gap-3 text-blue-200 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
                 <Phone className="w-5 h-5" />
@@ -70,7 +70,7 @@ export function Footer() {
 
         <div className="border-t border-blue-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-blue-200 text-sm">&copy; 2024 HR Academy. All rights reserved.</p>
+            <p className="text-blue-200 text-sm">&copy; 2026 HR Academy. All rights reserved.</p>
             <div className="flex gap-4">
               {['Facebook', 'Twitter', 'LinkedIn'].map((social) => (
                 <a

@@ -10,6 +10,7 @@ import { Footer } from './components/Footer';
 import { AdminLogin } from './components/AdminLogin';
 import { AdminPanel } from './components/AdminPanel';
 import { InterestForm } from './components/InterestForm';
+import { About } from './components/About';
 
 import { API_URL, STORAGE_URL } from './config';
 
@@ -68,14 +69,7 @@ function App() {
     setCartCount(cartCount + 1);
   };
 
-  const handleCheckoutSubmit = (e) => {
-    e.preventDefault();
-    alert(`✅ Purchase initiated!\n\n${selectedProduct.title}\nCustomer: ${checkoutData.customer_name}\nEmail: ${checkoutData.customer_email}\n\nPayment processing via Stripe...`);
-    setCurrentView('shop');
-    setCheckoutData({ customer_name: '', customer_email: '' });
-  };
-
- return (
+  return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
       <Header 
         currentView={currentView} 
@@ -144,22 +138,31 @@ function App() {
           </div>
         )}
 
-      {currentView === 'admin' && (
-  <div className="animate-in fade-in duration-500 py-8">
-    <AdminPanel />
-  </div>
-)}
+        {/* About View */}
+        {currentView === 'about' && (
+          <div className="animate-in fade-in duration-500 py-8">
+            <About />
+          </div>
+        )}
 
-       {currentView === 'checkout' && selectedProduct && (
-  <InterestForm
-    product={selectedProduct}
-    onClose={() => setCurrentView('shop')}
-    onSuccess={() => {
-      setSelectedProduct(null);
-      setCheckoutData({ customer_name: '', customer_email: '' });
-    }}
-  />
-)}
+        {/* Admin View */}
+        {currentView === 'admin' && (
+          <div className="animate-in fade-in duration-500 py-8">
+            <AdminPanel />
+          </div>
+        )}
+
+        {/* Checkout / Interest Form View */}
+        {currentView === 'checkout' && selectedProduct && (
+          <InterestForm
+            product={selectedProduct}
+            onClose={() => setCurrentView('shop')}
+            onSuccess={() => {
+              setSelectedProduct(null);
+              setCheckoutData({ customer_name: '', customer_email: '' });
+            }}
+          />
+        )}
       </main>
 
       <Footer />

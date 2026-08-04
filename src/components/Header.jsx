@@ -7,7 +7,7 @@ export function Header({ currentView, onViewChange, cartCount, isAdmin, onAdminC
     <header className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 shadow-2xl sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <div className="flex items-center space-x-3 group cursor-pointer">
+          <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => onViewChange('shop')}>
             <div className="bg-gradient-to-br from-cyan-400 to-blue-600 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
               <FileText className="w-7 h-7 text-white" />
             </div>
@@ -18,6 +18,21 @@ export function Header({ currentView, onViewChange, cartCount, isAdmin, onAdminC
               <p className="text-xs text-blue-200">Professional Training Resources</p>
             </div>
           </div>
+
+          {/* About Us - Centered */}
+          <button
+            onClick={() => onViewChange('about')}
+            className={`hidden md:block px-6 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
+              currentView === 'about'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-blue-500/50'
+                : 'text-blue-100 hover:text-white'
+            }`}
+          >
+            <span className="relative z-10">About Us</span>
+            {currentView !== 'about' && (
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+            )}
+          </button>
           
           <nav className="flex items-center space-x-3">
             {/* Shop Button - Always visible */}
