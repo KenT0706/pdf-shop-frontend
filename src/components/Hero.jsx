@@ -1,22 +1,8 @@
 // src/components/Hero.jsx
 import React from 'react';
-import { Zap, Lock, Truck, ArrowRight, ChevronRight } from 'lucide-react';
+import { Zap, Lock, Truck, ArrowRight } from 'lucide-react';
 
-const TOPICS = [
-  'Employment Law & Industrial Relations Masterclass in HR & Termination Procedures',
-  'Payroll Management Masterclass',
-  'Applications of Employment Act, Sabah Labour Ordinance and Sarawak Labour Ordinance',
-  'Developing HR Policies, SOPs and Employee Handbook',
-  'Masterclass in Human Resource Management',
-  'Critical HR Skills for Non-HR Managers',
-  'Behavioral-based Interview',
-  'Handling Discipline, Performance, Investigations and Domestic Inquiry',
-  'Termination without Violating the Law',
-  'HR & IR Documentations and Procedures',
-  'Other specialized HR training programs'
-];
-
-export function Hero({ onTopicClick }) {
+export function Hero() {
   const styles = `
     @keyframes blob {
       0%, 100% { transform: translate(0, 0) scale(1); }
@@ -37,7 +23,7 @@ export function Hero({ onTopicClick }) {
   return (
     <>
       <style>{styles}</style>
-      <div className="mb-16 relative overflow-hidden rounded-3xl">
+      <div className="relative overflow-hidden rounded-3xl h-full">
         {/* Animated background */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900">
           <div className="absolute inset-0 opacity-20">
@@ -48,85 +34,57 @@ export function Hero({ onTopicClick }) {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 px-8 py-16 md:py-20 text-white">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            {/* Left: Topics List */}
-            <div className="lg:col-span-1 order-2 lg:order-1">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-cyan-300 mb-4">
-                Topics We Cover
-              </h3>
-              <ul className="space-y-2">
-                {TOPICS.map((topic) => (
-                  <li key={topic}>
-                    <button
-                      onClick={() => onTopicClick(topic)}
-                      className="w-full flex items-center justify-between gap-2 text-left bg-white/5 hover:bg-white/15 border border-white/10 hover:border-cyan-400/50 rounded-lg px-4 py-2.5 text-sm text-blue-100 hover:text-white transition-all duration-300 group"
-                    >
-                      <span>{topic}</span>
-                      <ChevronRight className="w-4 h-4 flex-shrink-0 text-cyan-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-xs text-blue-200 mt-3">
-                Click a topic to enquire — we'll get back to you.
-              </p>
+        <div className="relative z-10 px-8 py-12 md:py-16 text-white h-full flex flex-col justify-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Elevate Your
+            <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              HR Expertise
+            </span>
+          </h2>
+
+          <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-xl">
+            Access premium, professionally-curated training materials designed for modern HR professionals. Learn from industry experts and transform your career.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300">
+              <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
+                <Zap className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="font-semibold text-sm">Instant Access</p>
+                <p className="text-xs text-blue-200">Download immediately</p>
+              </div>
             </div>
 
-            {/* Right: Main Hero Content */}
-            <div className="lg:col-span-2 order-1 lg:order-2">
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Elevate Your
-                <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  HR Expertise
-                </span>
-              </h2>
-
-              <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl">
-                Access premium, professionally-curated training materials designed for modern HR professionals. Learn from industry experts and transform your career.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-                <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                  <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm">Instant Access</p>
-                    <p className="text-xs text-blue-200">Download immediately</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                  <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
-                    <Lock className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm">100% Secure</p>
-                    <p className="text-xs text-blue-200">Safe payments</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                  <div className="p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg">
-                    <Truck className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm">24/7 Support</p>
-                    <p className="text-xs text-blue-200">We're here to help</p>
-                  </div>
-                </div>
+            <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300">
+              <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
+                <Lock className="w-5 h-5 text-white" />
               </div>
+              <div>
+                <p className="font-semibold text-sm">100% Secure</p>
+                <p className="text-xs text-blue-200">Safe payments</p>
+              </div>
+            </div>
 
-              <button
-                onClick={() => document.getElementById('shop-products')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 active:scale-95"
-              >
-                Explore Resources
-                <ArrowRight className="w-5 h-5" />
-              </button>
+            <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300">
+              <div className="p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg">
+                <Truck className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <p className="font-semibold text-sm">24/7 Support</p>
+                <p className="text-xs text-blue-200">We're here to help</p>
+              </div>
             </div>
           </div>
+
+          <button
+            onClick={() => document.getElementById('shop-products')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 active:scale-95 w-fit"
+          >
+            Explore Resources
+            <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </>
