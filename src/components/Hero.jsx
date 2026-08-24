@@ -3,14 +3,17 @@ import React from 'react';
 import { Zap, Lock, Truck, ArrowRight, ChevronRight } from 'lucide-react';
 
 const TOPICS = [
-  'Payroll Management',
-  'Employment Act Compliance',
-  'HR Policies & SOPs',
-  'Performance Management',
-  'Handling Discipline & Misconduct',
-  'Termination Procedures',
-  'Domestic Inquiry',
-  'Behavioral-based Interviewing',
+  'Employment Law & Industrial Relations Masterclass in HR & Termination Procedures',
+  'Payroll Management Masterclass',
+  'Applications of Employment Act, Sabah Labour Ordinance and Sarawak Labour Ordinance',
+  'Developing HR Policies, SOPs and Employee Handbook',
+  'Masterclass in Human Resource Management',
+  'Critical HR Skills for Non-HR Managers',
+  'Behavioral-based Interview',
+  'Handling Discipline, Performance, Investigations and Domestic Inquiry',
+  'Termination without Violating the Law',
+  'HR & IR Documentations and Procedures',
+  'Other specialized HR training programs'
 ];
 
 export function Hero({ onTopicClick }) {
