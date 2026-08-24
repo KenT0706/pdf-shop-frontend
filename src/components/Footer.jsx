@@ -20,7 +20,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links
           <div>
             <h4 className="font-bold text-lg mb-4 text-white">Quick Links</h4>
             <ul className="space-y-3">
@@ -32,9 +32,9 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
-          {/* Legal */}
+          {/* Legal
           <div>
             <h4 className="font-bold text-lg mb-4 text-white">Legal</h4>
             <ul className="space-y-3">
@@ -46,7 +46,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact */}
           <div>
@@ -70,7 +70,7 @@ export function Footer() {
 
         <div className="border-t border-blue-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-blue-200 text-sm">&copy; 2026 HR Academy. All rights reserved.</p>
+            <p className="text-blue-200 text-sm">&copy; @ 2026 HR Training Consultancy. All rights reserved.</p>
             <div className="flex gap-4">
               {['Facebook', 'Twitter', 'LinkedIn'].map((social) => (
                 <a

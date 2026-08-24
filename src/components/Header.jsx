@@ -19,6 +19,14 @@ export function Header({ currentView, onViewChange, cartCount, isAdmin, onAdminC
             </div>
           </div>
 
+<div className="hidden md:flex items-center mx-6">
+            <img
+              src="/hr training photo.jpeg"          // ← path from public folder
+              alt="HR Training Session"
+              className="h-16 w-auto rounded-lg shadow-md object-cover border-2 border-cyan-400/30 hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
           {/* About Us - Centered */}
           <button
             onClick={() => onViewChange('about')}
