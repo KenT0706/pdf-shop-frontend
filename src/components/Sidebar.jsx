@@ -124,7 +124,7 @@ export function Sidebar({ onFilterChange, onTopicClick }) {
       </div>
 
       {/* Price Range (unchanged) */}
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
+      {/* <div className="bg-white rounded-2xl p-6 shadow-lg">
         <h3 className="font-bold text-lg text-slate-900 mb-4">Price Range</h3>
         <div className="space-y-4">
           <input
@@ -148,7 +148,7 @@ export function Sidebar({ onFilterChange, onTopicClick }) {
             Apply Filter
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
