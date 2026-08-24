@@ -44,7 +44,7 @@ export function Header({ currentView, onViewChange, cartCount, isAdmin, onAdminC
           
           <nav className="flex items-center space-x-3">
             {/* Shop Button - Always visible */}
-            <button
+            {/* <button
               onClick={() => onViewChange('shop')}
               className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 capitalize relative overflow-hidden group ${
                 currentView === 'shop' 
@@ -56,7 +56,7 @@ export function Header({ currentView, onViewChange, cartCount, isAdmin, onAdminC
               {currentView !== 'shop' && (
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
               )}
-            </button>
+            </button> */}
 
             {/* Admin Button - Only visible if authenticated */}
             {isAdmin && (

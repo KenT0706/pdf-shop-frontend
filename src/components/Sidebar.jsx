@@ -54,7 +54,7 @@ export function Sidebar({ onFilterChange, onTopicClick }) {
           <div className="text-center text-slate-600 py-4">Loading...</div>
         ) : (
           <div className="space-y-2">
-            {/* All Resources */}
+            {/* All Resources
             <button
               onClick={() => {
                 setExpandedCategory(expandedCategory === 'all' ? null : 'all');
@@ -86,7 +86,7 @@ export function Sidebar({ onFilterChange, onTopicClick }) {
               </button>
             ))}
           </div>
-        )}
+        )} */}
 
         {/* ========== Topics We Cover (moved here) ========== */}
         <div className="mt-8 pt-6 border-t border-slate-200">
