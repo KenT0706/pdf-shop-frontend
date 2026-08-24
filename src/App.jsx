@@ -51,6 +51,11 @@ function App() {
     setCurrentView('shop');
   };
 
+  const handleTopicClick = (topicName) => {
+  setSelectedProduct({ id: null, title: topicName, price: null });
+  setCurrentView('checkout');
+};
+
   const fetchProducts = async () => {
     try {
       setLoading(true);
@@ -89,7 +94,7 @@ function App() {
         {/* Shop View */}
         {currentView === 'shop' && (
           <div className="space-y-12 animate-in fade-in duration-500">
-            <Hero />
+            <Hero onTopicClick={handleTopicClick} />
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               {/* Sidebar */}
@@ -100,7 +105,7 @@ function App() {
               </div>
 
               {/* Products */}
-              <div className="lg:col-span-3">
+              <div className="lg:col-span-3" id="shop-products">
                 <div className="mb-8">
                   <h3 className="text-3xl font-bold text-slate-900 mb-2">Featured Resources</h3>
                   <p className="text-slate-600 mb-6">Curated training materials for modern HR professionals</p>

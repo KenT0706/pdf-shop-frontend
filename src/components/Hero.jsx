@@ -1,8 +1,19 @@
 // src/components/Hero.jsx
 import React from 'react';
-import { Zap, Lock, Truck, ArrowRight } from 'lucide-react';
+import { Zap, Lock, Truck, ArrowRight, ChevronRight } from 'lucide-react';
 
-export function Hero() {
+const TOPICS = [
+  'Payroll Management',
+  'Employment Act Compliance',
+  'HR Policies & SOPs',
+  'Performance Management',
+  'Handling Discipline & Misconduct',
+  'Termination Procedures',
+  'Domestic Inquiry',
+  'Behavioral-based Interviewing',
+];
+
+export function Hero({ onTopicClick }) {
   const styles = `
     @keyframes blob {
       0%, 100% { transform: translate(0, 0) scale(1); }
@@ -35,54 +46,83 @@ export function Hero() {
 
         {/* Content */}
         <div className="relative z-10 px-8 py-16 md:py-20 text-white">
-          <div className="max-w-4xl">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Elevate Your
-              <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                HR Expertise
-              </span>
-            </h2>
-            
-            <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl">
-              Access premium, professionally-curated training materials designed for modern HR professionals. Learn from industry experts and transform your career.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">Instant Access</p>
-                  <p className="text-xs text-blue-200">Download immediately</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
-                  <Lock className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">100% Secure</p>
-                  <p className="text-xs text-blue-200">Safe payments</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg">
-                  <Truck className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">24/7 Support</p>
-                  <p className="text-xs text-blue-200">We're here to help</p>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {/* Left: Topics List */}
+            <div className="lg:col-span-1 order-2 lg:order-1">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-cyan-300 mb-4">
+                Topics We Cover
+              </h3>
+              <ul className="space-y-2">
+                {TOPICS.map((topic) => (
+                  <li key={topic}>
+                    <button
+                      onClick={() => onTopicClick(topic)}
+                      className="w-full flex items-center justify-between gap-2 text-left bg-white/5 hover:bg-white/15 border border-white/10 hover:border-cyan-400/50 rounded-lg px-4 py-2.5 text-sm text-blue-100 hover:text-white transition-all duration-300 group"
+                    >
+                      <span>{topic}</span>
+                      <ChevronRight className="w-4 h-4 flex-shrink-0 text-cyan-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-blue-200 mt-3">
+                Click a topic to enquire — we'll get back to you.
+              </p>
             </div>
 
-            <button className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 active:scale-95">
-              Explore Resources
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Right: Main Hero Content */}
+            <div className="lg:col-span-2 order-1 lg:order-2">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Elevate Your
+                <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  HR Expertise
+                </span>
+              </h2>
+
+              <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl">
+                Access premium, professionally-curated training materials designed for modern HR professionals. Learn from industry experts and transform your career.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                  <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg">
+                    <Zap className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">Instant Access</p>
+                    <p className="text-xs text-blue-200">Download immediately</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                  <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
+                    <Lock className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">100% Secure</p>
+                    <p className="text-xs text-blue-200">Safe payments</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                  <div className="p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg">
+                    <Truck className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">24/7 Support</p>
+                    <p className="text-xs text-blue-200">We're here to help</p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => document.getElementById('shop-products')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 active:scale-95"
+              >
+                Explore Resources
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

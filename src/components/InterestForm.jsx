@@ -27,14 +27,14 @@ export function InterestForm({ product, onClose, onSuccess }) {
     setError(null);
 
     try {
-      await axios.post(`${API_URL}/send-interest-email`, {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        product_id: product.id,
-        product_title: product.title,
-        product_price: product.price,
-      });
+     await axios.post(`${API_URL}/send-interest-email`, {
+  name: formData.name,
+  email: formData.email,
+  phone: formData.phone,
+  product_id: product.id ?? null,
+  product_title: product.title,
+  product_price: product.price ?? null,
+});
 
       setSuccess(true);
       setTimeout(() => {
@@ -94,7 +94,9 @@ export function InterestForm({ product, onClose, onSuccess }) {
               <h3 className="font-bold text-slate-900 line-clamp-1">{product.title}</h3>
             </div>
           </div>
-          <p className="text-2xl font-bold text-blue-600">RM{product.price}</p>
+        {product.price != null && (
+  <p className="text-2xl font-bold text-blue-600">RM{product.price}</p>
+)}
         </div>
 
         {/* Form Title */}
