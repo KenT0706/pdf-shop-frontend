@@ -50,12 +50,12 @@ export function Sidebar({ onFilterChange, onTopicClick }) {
       <div className="bg-white rounded-2xl p-6 shadow-lg">
         <h3 className="font-bold text-lg text-slate-900 mb-4">Categories</h3>
 
-        {loading ? (
+        {/* {loading ? (
           <div className="text-center text-slate-600 py-4">Loading...</div>
         ) : (
-          <div className="space-y-2">
-            {/* All Resources
-            <button
+          <div className="space-y-2"> */}
+            {/* All Resources */}
+            {/* <button
               onClick={() => {
                 setExpandedCategory(expandedCategory === 'all' ? null : 'all');
                 onFilterChange({ category: null });
@@ -64,9 +64,9 @@ export function Sidebar({ onFilterChange, onTopicClick }) {
             >
               <span className="font-medium text-slate-700 group-hover:text-blue-600">All Resources</span>
               <ChevronDown className={`w-4 h-4 transition-transform duration-300 text-slate-600 group-hover:text-blue-600 ${expandedCategory === 'all' ? 'rotate-180' : ''}`} />
-            </button>
+            </button> */}
 
-            {/* Dynamic categories from API */}
+            {/* Dynamic categories from API
             {categories.map((cat, idx) => (
               <button
                 key={idx}
