@@ -4,27 +4,21 @@ import { FileText, ShoppingCart, Lock } from 'lucide-react';
 
 export function Header({ currentView, onViewChange, cartCount, isAdmin, onAdminClick }) {
   return (
-    <header className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 shadow-2xl sticky top-0 z-50">
+      <header className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 shadow-2xl sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => onViewChange('shop')}>
-            <div className="bg-gradient-to-br from-cyan-400 to-blue-600 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <FileText className="w-7 h-7 text-white" />
-            </div>
+            <img
+              src="/hr training photo.jpeg"
+              alt="HR Training Consultancy Logo"
+              className="h-14 w-14 rounded-xl object-cover shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-cyan-400/40"
+            />
             <div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                 HR Training Consultancy
               </h1>
               <p className="text-xs text-blue-200">Professional Training Resources</p>
             </div>
-          </div>
-
-<div className="hidden md:flex items-center mx-6">
-            <img
-              src="/hr training photo.jpeg"          // ← path from public folder
-              alt="HR Training Session"
-              className="h-16 w-auto rounded-lg shadow-md object-cover border-2 border-cyan-400/30 hover:scale-105 transition-transform duration-300"
-            />
           </div>
 
           {/* About Us - Centered */}

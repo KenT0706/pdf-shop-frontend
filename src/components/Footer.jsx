@@ -70,7 +70,7 @@ export function Footer() {
 
         <div className="border-t border-blue-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-blue-200 text-sm">&copy; @ 2026 HR Training Consultancy. All rights reserved.</p>
+            <p className="text-blue-200 text-sm"> @ 2026 HR Training Consultancy. All rights reserved.</p>
             <div className="flex gap-4">
               {['Facebook', 'Twitter', 'LinkedIn'].map((social) => (
                 <a
