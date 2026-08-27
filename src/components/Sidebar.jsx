@@ -51,7 +51,7 @@ export function Sidebar({ onFilterChange, onTopicClick }) {
         <h3 className="font-bold text-lg text-slate-900 mb-4">Categories</h3>
 
 
-      <h4 className=" text-slate-900 mb-3 text-sm uppercase tracking-wider">
+      <h4 className=" text-slate-900 mb-3 text-sm">
             Comprehensive Training notes available for purchase
           </h4>
         {/* {loading ? (
